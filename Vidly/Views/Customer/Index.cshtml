@@ -1,0 +1,23 @@
+﻿@using Vidly.Models
+@model Vidly.ViewModel.RandomMovieViewModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Customers</h2>
+@if (@Model.Customers.Count > 0)
+{
+    <ul>
+        @foreach (Customer customer in @Model.Customers)
+        {
+            <li id="@customer.Id">
+                @Html.ActionLink(customer.Name,"Details","Customer",customer,null)
+            </li>
+        }
+    </ul>}
+else
+{
+    <text>There are no customers</text>
+}
+
