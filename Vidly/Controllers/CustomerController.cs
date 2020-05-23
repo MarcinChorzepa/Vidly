@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 using System.Web.Mvc;
-using System.Web.WebSockets;
 using Vidly.Models;
 using Vidly.ViewModel;
 
@@ -16,31 +12,28 @@ namespace Vidly.Controllers
         {
             var customers = new List<Customer>
             {
-                new Customer() {Id = 1, Name = "Marcin Chorzepa"},
-                new Customer() {Id = 2, Name = "Stefan Patefan"}
+                new Customer {Id = 1, Name = "Marcin Chorzepa"},
+                new Customer {Id = 2, Name = "Stefan Patefan"}
             };
-            var viewModel = new RandomMovieViewModel()
+            var viewModel = new RandomMovieViewModel
             {
                 Customers = customers
             };
-          
+
             return View(viewModel);
         }
 
         //GET: Customer/Details/{id}
-        public ActionResult Details(int Id)
+        public ActionResult Details(int id)
         {
-            
             var customers = new List<Customer>
             {
-                new Customer() {Id = 1, Name = "Marcin Chorzepa"},
-                new Customer() {Id = 2, Name = "Stefan Patefan"}
+                new Customer {Id = 1, Name = "Marcin Chorzepa"},
+                new Customer {Id = 2, Name = "Stefan Patefan"}
             };
-            var customer = customers.Find(x=>x.Id==@Id);
+            var customer = customers.Find(x => x.Id == id);
 
             return View(customer);
         }
-
     }
-
 }
